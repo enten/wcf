@@ -1,6 +1,6 @@
 {
   "name": "wcf",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Webpack configuration factory",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/enten/wcf#readme",
   "dependencies": {
-    "confactory": "^0.1.1"
+    "confactory": "^0.1.2"
   }
 }
