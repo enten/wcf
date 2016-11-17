@@ -1,0 +1,27 @@
+{
+  "name": "wcf",
+  "version": "0.1.0",
+  "description": "Webpack configuration factory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enten/wcf.git"
+  },
+  "keywords": [
+    "webpack",
+    "configuration",
+    "factory"
+  ],
+  "author": "Steven Enten <steven@enten.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enten/wcf/issues"
+  },
+  "homepage": "https://github.com/enten/wcf#readme",
+  "dependencies": {
+    "confactory": "^0.1.0"
+  }
+}
