@@ -1,7 +1,7 @@
 const confactory = require('confactory')
 
-function createWebpackConfigFactory(f) {
-  return (f || confactory())
+function createWebpackConfigFactory (f) {
+  return (f || confactory())
     // standards environments
     .$target('dev', {prod: false})
     .$target('prod', {prod: true})
@@ -11,7 +11,7 @@ function createWebpackConfigFactory(f) {
     .$target('node', {target: 'node'})
     .$target('async-node', {target: 'async-node'})
     .$target('node-webkit', {target: 'node-webkit'})
-    .$target('electron', {target: 'electron'})     
+    .$target('electron', {target: 'electron'})
     // standards helpers
     .$helper('context')
     .$helper('entry')
