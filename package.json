@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/enten/wcf#readme",
   "dependencies": {
-    "confactory": "^0.1.0"
+    "confactory": "^0.1.1"
   }
 }
