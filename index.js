@@ -91,8 +91,12 @@ function createWebpackConfigFactory (f) {
   f.$helper('recordsOutputPath')
   f.$helper('plugins', true)
 
-  // hook which populates the build target name
-  f.$setWith('target', (config, context, {target}) => target)
+  // hook which populates the build target for standard target names only
+  f.$hook((config, context, {target}) => {
+    if (config && !config.target && ~WEBPACK_STANDARDS_TARGETS.indexOf(target)) {
+      config.target = target
+    }
+  })
 
   return f
 }
