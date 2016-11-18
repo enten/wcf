@@ -1,10 +1,13 @@
 {
   "name": "wcf",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Webpack configuration factory",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "confactory": "^0.1.6"
   },
   "repository": {
     "type": "git",
@@ -20,8 +23,5 @@
   "bugs": {
     "url": "https://github.com/enten/wcf/issues"
   },
-  "homepage": "https://github.com/enten/wcf#readme",
-  "dependencies": {
-    "confactory": "^0.1.5"
-  }
+  "homepage": "https://github.com/enten/wcf#readme"
 }
