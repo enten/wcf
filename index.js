@@ -9,8 +9,8 @@ const WEBPACK_STANDARDS_TARGETS = [
   'electron'
 ]
 
-function createWebpackConfigFactory (f) {
-  f = f || confactory()
+function createWebpackConfigFactory (...extensions) {
+  const f = confactory()
 
   // standards environments
   f.$target('dev', {prod: false})
@@ -97,6 +97,9 @@ function createWebpackConfigFactory (f) {
       config.target = target
     }
   })
+
+  // combine extensions
+  extensions.forEach((factory) => f.$combine(factory))
 
   return f
 }

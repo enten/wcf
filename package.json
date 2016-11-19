@@ -1,13 +1,13 @@
 {
   "name": "wcf",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Webpack configuration factory",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "confactory": "^0.1.8"
+    "confactory": "^0.1.9"
   },
   "repository": {
     "type": "git",
