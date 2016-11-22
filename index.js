@@ -20,6 +20,9 @@ function createWebpackConfigFactory (...extensions) {
   WEBPACK_STANDARDS_TARGETS
     .forEach((target) => f.$target(target, {target}))
 
+  // custom webpack targets
+  f.$target('server', {target: 'node', server: true})
+
   // standards helpers
   f.$helper('context')
   f.$helper('entry')
