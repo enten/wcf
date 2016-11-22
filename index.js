@@ -95,7 +95,7 @@ function createWebpackConfigFactory (...extensions) {
   f.$helper('plugins', true)
 
   // hook which populates the build target for standard target names only
-  f.$hook((config, context, {target}) => {
+  f.$hook((context, {target}, config) => {
     if (config && !config.target && ~WEBPACK_STANDARDS_TARGETS.indexOf(target)) {
       config.target = target
     }
