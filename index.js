@@ -1,12 +1,16 @@
 const confactory = require('confactory')
 
-const WEBPACK_STANDARDS_TARGETS = [
+// https://goo.gl/UThwc8
+const WEBPACK_TARGETS = [
   'web',
   'webworker',
   'node',
   'async-node',
   'node-webkit',
-  'electron'
+  'atom',
+  'electron',
+  'electron-main',
+  'electron-renderer'
 ]
 
 const f = confactory()
@@ -16,7 +20,7 @@ f.$target('dev', {prod: false})
 f.$target('prod', {prod: true})
 
 // standards webpack targets
-WEBPACK_STANDARDS_TARGETS
+WEBPACK_TARGETS
   .forEach((target) => f.$target(target, {target}))
 
 // custom webpack targets
@@ -107,7 +111,7 @@ f.$helper('plugins', true)
 
 // hook which populates the build target for standard target names only
 f.$hook((context, {target}, config) => {
-  if (config && !config.target && ~WEBPACK_STANDARDS_TARGETS.indexOf(target)) {
+  if (config && !config.target && ~WEBPACK_TARGETS.indexOf(target)) {
     config.target = target
   }
 })
