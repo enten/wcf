@@ -32,7 +32,7 @@ const f = wcf()
       .concat([['NODE_ENV', nodeEnv]])
       .concat([['SECRET', secret]])
       .map(([key, val]) => [key, JSON.stringify(val)])
-      .reduce((acc, [key, val]) => Object.assign(acc, {[key]: val}), {})
+      .reduce((acc, [key, val]) => Object.assign(acc, {[`process.env.${key}`]: val}), {})
   ))
 
 const webpackConfig = f.$build({secret: 'supersecret'}, {prod, target})
@@ -56,8 +56,8 @@ console.dir(webpackConfig, {depth: null})
 //    [ DefinePlugin {
 //        definitions:
 //         { ...
-//           NODE_ENV: '"development"',
-//           SECRET: '"supersecret"' } } ] }
+//           process.env.NODE_ENV: '"development"',
+//           process.env.SECRET: '"supersecret"' } } ] }
 ```
 
 ## License
