@@ -3,23 +3,24 @@ const wcf = require('.')
 
 const target = process.argv[2] || 'web'
 const nodeEnv = process.env.NODE_ENV || 'development'
-const nodeEnvStr = JSON.stringify(nodeEnv)
 const prod = nodeEnv === 'production'
 
-wcf
+const f = wcf()
   .devtool('source-map')
   .prod.web.devtool('hidden-source-map')
   .web.pluginsWith(() => new Webpack.DefinePlugin({
-    'process.env.NODE_ENV': nodeEnvStr
+    'process.env.NODE_ENV': JSON.stringify(nodeEnv)
   }))
-  .node.pluginsWith(() => new Webpack.DefinePlugin(
+  .node.pluginsWith(({secret}) => new Webpack.DefinePlugin(
     Object.keys(process.env)
-      .map((key) => [key, JSON.stringify(process.env[key])])
-      .concat([['NODE_ENV', nodeEnvStr]])
+      .map((key) => [key, process.env[key]])
+      .concat([['NODE_ENV', nodeEnv]])
+      .concat([['SECRET', secret]])
+      .map(([key, val]) => [key, JSON.stringify(val)])
       .reduce((acc, [key, val]) => Object.assign(acc, {[key]: val}), {})
   ))
 
-const webpackConfig = wcf.$build({prod, target})
+const webpackConfig = f.$build({secret: 'supersecret'}, {prod, target})
 
 console.dir(webpackConfig, {depth: null})
 
@@ -39,6 +40,6 @@ console.dir(webpackConfig, {depth: null})
 //   plugins:
 //    [ DefinePlugin {
 //        definitions:
-//         { SHELL: '"/bin/bash"',
-//           TERM: '"st-256color"',
-//           ... } } ] }
+//         { ...
+//           NODE_ENV: '"development"',
+//           SECRET: '"supersecret"' } } ] }
