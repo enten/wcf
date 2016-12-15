@@ -184,13 +184,20 @@ f.$helper('watchOptions.poll')
 // https://webpack.js.org/configuration/externals/
 f.$helper('externals', true)
 
-// Node helper
+// Node helpers
 // https://webpack.js.org/configuration/node/
 //
 // Note:
 // `_node` key is an alias to `webpackConfig.node`
 // cause `node` key is used as a subfactory for `node` target
 f.$helper('node', '_node')
+f.$helper('node.console', '_node.console')
+f.$helper('node.global', '_node.global')
+f.$helper('node.process', '_node.process')
+f.$helper('node.Buffer', '_node.Buffer')
+f.$helper('node.__filename', '_node.__filename')
+f.$helper('node.__dirname', '_node.__dirname')
+f.$helper('node.setImmediate', '_node.setImmediate')
 
 // Stats helpers
 // https://webpack.js.org/configuration/stats/
