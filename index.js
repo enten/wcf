@@ -132,6 +132,14 @@ f.$helper('resolveLoader.packageAlias')
 f.$helper('resolveLoader.packageMains', true)
 f.$helper('resolveLoader.root', true)
 
+// Performance helpers
+// https://goo.gl/9U9CTg
+f.$helper('performance')
+f.$helper('performance.assetFilter')
+f.$helper('performance.hints')
+f.$helper('performance.maxEntrypointSize')
+f.$helper('performance.maxAssetSize')
+
 // Plugins helper
 // https://webpack.js.org/configuration/plugins/
 f.$helper('plugins', true)
