@@ -25,6 +25,7 @@ WEBPACK_TARGETS
   .forEach((target) => f.$target(target, {target}))
 
 // Custom webpack targets
+f.$target('client', {target: 'web', client: true})
 f.$target('server', {target: 'node', server: true})
 
 // Entry and Context helpers

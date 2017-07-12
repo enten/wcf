@@ -1,6 +1,6 @@
 {
   "name": "wcf",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Webpack configuration factory",
   "main": "index.js",
   "scripts": {
